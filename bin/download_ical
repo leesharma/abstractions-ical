@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/abstractions'
+
+puts 'Please enter filename: (calendar will be saved to out/<filename>.ics'
+filename = gets.chomp
+puts "Saving ical to out/#{filename}.ics ..."
+
+cal = Abstractions::Schedule.new.to_ical
+
+File.open('out/' + filename + '.ics', 'w+') { |f| f.puts cal }
+
+puts 'File saved!'

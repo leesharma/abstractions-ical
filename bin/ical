@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/abstractions'
+
+puts Abstractions::Schedule.new.to_ical
