@@ -2,4 +2,5 @@
 
 require_relative '../lib/abstractions'
 
-puts Abstractions::Schedule.new.to_ical
+schedule = Abstractions::Schedule
+puts schedule.to_ical

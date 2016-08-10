@@ -2,12 +2,59 @@
 
 require_relative '../lib/abstractions'
 
-puts 'Please enter filename: (calendar will be saved to out/<filename>.ics'
-filename = gets.chomp
-puts "Saving ical to out/#{filename}.ics ..."
+class Abstractions::Greeter
+  def initialize(relative_save_path: 'out')
+    @root_path = File.expand_path File.dirname File.dirname(__FILE__)
+    @save_dir  = File.join(root_path, relative_save_path)
+  end
 
-cal = Abstractions::Schedule.new.to_ical
+  def introduce_script
+    puts
+    puts 'This script is going to grab the Abstractions.io schedule and save it locally as an iCal file.'
+    puts "The file will be saved in \"#{save_dir}\""
+    puts
+  end
 
-File.open('out/' + filename + '.ics', 'w+') { |f| f.puts cal }
+  def collect_filename
+    puts 'Please enter filename: (no extension, ex: "abstractions.1.3")'
+    print '    Filename: '
+    @filename = gets.chomp
+    @filename += '.ics' unless filename.end_with? '.ics'
+    @full_path = File.join(save_dir, filename)
+    puts
+  end
 
-puts 'File saved!'
+  def progress_message
+    puts
+    puts "Writing to #{filename}..."
+  end
+
+  def bid_adeau
+    puts 'File saved! To open, run:'
+    puts "    open #{full_path}"
+    puts
+  end
+
+  attr_reader :full_path
+
+  private
+
+  attr_reader :root_path, :save_dir, :filename
+end
+
+# main
+
+bot = Abstractions::Greeter.new
+schedule = Abstractions::Schedule.new
+
+bot.introduce_script
+bot.collect_filename
+
+cal = schedule.to_ical
+
+File.open(bot.full_path, 'w+') do |f|
+  bot.progress_message
+  f.puts cal
+end
+
+bot.bid_adeau
