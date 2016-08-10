@@ -37,6 +37,17 @@ module Abstractions
       stage.name
     end
 
+    def add_to(cal)
+      cal.event do |e|
+        e.dtstart     = time_start
+        e.dtend       = time_end
+        e.summary     = title
+        e.description = description
+        e.url         = url
+        e.location    = location
+      end
+    end
+
     private
 
     attr_reader :id

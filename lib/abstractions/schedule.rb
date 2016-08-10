@@ -38,20 +38,10 @@ module Abstractions
     attr_reader :conn, :response, :client, :ical
 
     def add_sessions_to(cal)
-      sessions.each { |session| add_session(cal, session: session) }
+      sessions.each { |session| session.add_to cal }
     end
 
-    def add_session(cal, session:)
-      cal.event do |e|
-        e.dtstart     = session.time_start
-        e.dtend       = session.time_end
-        e.summary     = session.title
-        e.description = session.description
-        e.url         = session.url
-        e.location    = session.location
-      end
-    end
-
+    # Requires knowledge of the API structure
     def extract_sessions_from_api_response
       response_body = client.response_body
 
@@ -66,6 +56,7 @@ module Abstractions
       end
     end
 
+    # Requires knowledge of the API structure
     def new_session(day:, stage:, session:)
       date         = date_from_weekday day['name']
       stage_name   = stage['name']
@@ -80,6 +71,7 @@ module Abstractions
       DATES.fetch(weekday)
     end
 
+    # Requires knowledge of the API structure
     def changeset(session, date:, stage:)
       {
         'time_start' => time_from_date_and_string(date, session['time_start']),
