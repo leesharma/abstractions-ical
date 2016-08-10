@@ -29,7 +29,6 @@ module Abstractions
       return ical if ical
 
       cal = Icalendar::Calendar.new
-      add_metadata_to cal
       add_sessions_to cal
       @ical = cal.to_ical
     end
@@ -38,21 +37,14 @@ module Abstractions
 
     attr_reader :conn, :response, :client, :ical
 
-    def add_metadata_to(cal)
-      cal.prodid  = ical_metadata[:prodid]
-      cal.version = ical_metadata[:version]
-    end
-
     def add_sessions_to(cal)
-      tzid = ical_metadata[:timezone]
-      sessions.each { |session| add_session(cal, session: session, tzid: tzid) }
+      sessions.each { |session| add_session(cal, session: session) }
     end
 
-    def add_session(cal, session:, tzid:)
-      ical_datetime = Icalendar::Values::DateTime
+    def add_session(cal, session:)
       cal.event do |e|
-        e.dtstart = ical_datetime.new(session.time_start, tzid: tzid)
-        e.dtend   = ical_datetime.new(session.time_end, tzid: tzid)
+        e.dtstart     = session.time_start
+        e.dtend       = session.time_end
         e.summary     = session.title
         e.description = session.description
         e.url         = session.url
@@ -94,14 +86,6 @@ module Abstractions
         'time_end'   => time_from_date_and_string(date, session['time_end']),
         'stage'      => stage
       }
-    end
-
-    def ical_metadata(override: {})
-      @_ical_metadata ||= {
-        prodid:  '-//Lee Sharma//Test Cal//EN',
-        version: '2.0',
-        timezone: 'US-Eastern'
-      }.merge(override)
     end
 
     def time_from_date_and_string(date, time_str, timezone: CONFERENCE_TIMEZONE)
