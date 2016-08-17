@@ -19,6 +19,19 @@ Want your own server? Deploy one instantly using the heroku deploy button below.
 
 ## How to Use
 
+### Subscribe
+
+Subscribe using the url https://abstractions-ical.herokuapp.com/abstractions.ics
+
+Here are directions for a few popular vendors:
+
+- [OS X (iCloud)](https://support.apple.com/en-us/HT202361)
+- [iOS](http://www.imore.com/how-subscribe-calendars-your-iphone-or-ipad)
+- [Google](https://support.google.com/calendar/answer/37100?hl=en)
+- [Outlook](https://support.office.com/en-us/article/View-and-subscribe-to-Internet-Calendars-f6248506-e144-4508-b658-c838b6067597)
+
+### Generate a Schedule
+
 Clone and navigate into the repository. Then, install dependencies:
 
 ```bash
