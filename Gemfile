@@ -9,3 +9,6 @@ gem 'faraday'
 
 gem 'sinatra'
 gem 'thin'
+gem 'api_cache'
+gem 'moneta'
+gem 'dalli'
