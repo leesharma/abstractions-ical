@@ -1,0 +1,6 @@
+{
+  "name": "Abstractions.io iCal Server",
+  "description": "Keep your Abstractions schedule up-to-date with your own iCal server",
+  "repository": "https://github.com/leesharma/abstractions-ical",
+  "keywords": ["ical", "abstractions.io", "schedule"]
+}
