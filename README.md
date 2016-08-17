@@ -1,4 +1,4 @@
-# Abstractions iCal
+# Abstractions iCal (Script + Server)
 
 A quick script to grab the Abstractions schedule from their API and convert it to iCal format.
 
@@ -10,8 +10,9 @@ Want your own server? Deploy one instantly using the heroku deploy button below.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-**Quick Links:** [Abstractions API] | [Schedule Endpoint] | [Main Webpage]
+**Quick Links:** [Abstractions iCal] | [Abstractions API] | [Schedule Endpoint] | [Main Webpage]
 
+[Abstractions iCal]: https://abstractions-ical.herokuapp.com/abstractions.ics
 [Abstractions API]: http://abstractions.io/api/
 [Schedule Endpoint]: http://abstractions.io/api/schedule.json
 [Main Webpage]: http://abstractions.io/
