@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'newrelic_rpm'
 require_relative '../lib/abstractions'
 
 schedule = Abstractions::Schedule.new

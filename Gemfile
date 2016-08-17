@@ -12,3 +12,5 @@ gem 'thin'
 gem 'api_cache'
 gem 'moneta'
 gem 'dalli'
+
+gem 'newrelic_rpm', group: :production

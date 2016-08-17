@@ -10,6 +10,7 @@ GEM
     icalendar (2.4.0)
     moneta (0.8.0)
     multipart-post (2.0.0)
+    newrelic_rpm (3.10.0.279)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -32,6 +33,7 @@ DEPENDENCIES
   faraday
   icalendar
   moneta
+  newrelic_rpm
   sinatra
   thin
 
