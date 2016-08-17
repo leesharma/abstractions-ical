@@ -4,3 +4,8 @@ source 'https://rubygems.org'
 
 gem 'icalendar'
 gem 'faraday'
+
+# web server
+
+gem 'sinatra'
+gem 'thin'
