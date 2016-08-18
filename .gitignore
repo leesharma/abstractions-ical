@@ -1,3 +1,6 @@
 # Ignore `out` contents, but keep the folder
 out/*
 !out/.gitkeep
+
+.ruby-version
+.ruby-gemset

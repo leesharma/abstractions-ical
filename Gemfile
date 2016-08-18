@@ -2,6 +2,8 @@
 
 source 'https://rubygems.org'
 
+gem 'rake'
+
 gem 'icalendar'
 gem 'faraday'
 
@@ -12,5 +14,7 @@ gem 'thin'
 gem 'api_cache'
 gem 'moneta'
 gem 'dalli'
+
+gem 'minitest-reporters', group: :test
 
 gem 'newrelic_rpm', group: :production
