@@ -4,3 +4,4 @@ out/*
 
 .ruby-version
 .ruby-gemset
+vendor/ruby
