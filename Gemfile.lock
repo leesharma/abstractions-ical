@@ -19,8 +19,8 @@ GEM
     moneta (0.8.0)
     multipart-post (2.0.0)
     newrelic_rpm (3.16.2.321)
-    rack (1.6.4)
-    rack-protection (1.5.3)
+    rack (1.6.13)
+    rack-protection (1.5.5)
       rack
     rake (11.2.2)
     ruby-progressbar (1.8.1)
